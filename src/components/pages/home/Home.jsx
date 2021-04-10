@@ -4,6 +4,7 @@ import Hero from "./hero/Hero";
 import HeaderNavCard from "./navbar/HeaderNavCard";
 import "./home.scss";
 import Heading from "../../utils/Heading";
+import ServiceContainer from "./services/ServiceContainer";
 const Home = () => {
     const navCardData = [
         {
@@ -46,6 +47,7 @@ const Home = () => {
                 headingSecond="Our Services"
                 headingPrime="Services We Provide"
             />
+            <ServiceContainer />
         </>
     );
 };
