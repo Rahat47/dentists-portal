@@ -1,10 +1,15 @@
 import React from "react";
-import Navbar from "./navbar/Navbar";
-import Hero from "./hero/Hero";
-import HeaderNavCard from "./navbar/HeaderNavCard";
 import "./home.scss";
-import Heading from "../../utils/Heading";
+import Heading from "../../shared/Heading";
 import ServiceContainer from "./services/ServiceContainer";
+import Feature from "./feature/Feature";
+import CallToAction from "./cta/CallToAction";
+import Header from "./header/Header";
+import Testomonial from "./testimonials/Testomonial";
+import Blog from "./blogs/Blog";
+import Doctors from "./doctors/Doctors";
+import Contact from "./contacts/Contact";
+import Footer from "../../shared/Footer/Footer";
 const Home = () => {
     const navCardData = [
         {
@@ -32,22 +37,20 @@ const Home = () => {
     ];
     return (
         <>
-            <header className="site-header mb-5">
-                <div className="container">
-                    <Navbar />
-                    <Hero />
-                    <div className="row d-flex">
-                        {navCardData.map(data => (
-                            <HeaderNavCard key={data.id} data={data} />
-                        ))}
-                    </div>
-                </div>
-            </header>
+            <Header navCardData={navCardData} />
             <Heading
                 headingSecond="Our Services"
                 headingPrime="Services We Provide"
             />
             <ServiceContainer />
+            <Feature />
+            <CallToAction />
+            <Testomonial />
+            <Heading headingPrime="From Our Blog News" headingSecond="Blogs" />
+            <Blog />
+            <Doctors />
+            <Contact />
+            <Footer />
         </>
     );
 };

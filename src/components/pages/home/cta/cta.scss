@@ -1,0 +1,22 @@
+.section-cta {
+    margin-top: 110px;
+    background-image: linear-gradient(
+            to right,
+            rgba($color: #3a4256, $alpha: 0.9),
+            rgba($color: #3a4256, $alpha: 1)
+        ),
+        url("../../../../images/cta-mask.png");
+    background-size: cover;
+    background-position: right;
+    background-repeat: repeat;
+    height: min-content;
+    padding: 35px 0;
+    margin-bottom: 80px;
+}
+
+.cta-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -35px;
+}
