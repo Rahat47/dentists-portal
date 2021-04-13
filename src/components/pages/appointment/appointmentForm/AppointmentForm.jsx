@@ -1,17 +1,26 @@
 import React from "react";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
+import { createAppointment } from "../../../../API";
 
 const AppointmentForm = ({ modalIsOpen, closeModal, booking, date }) => {
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => {
+
+    const onSubmit = async data => {
         const formData = {
             ...data,
             service: booking.subject,
             serviceDate: new Date(date).toDateString(),
-            createdAt: new Date().toDateString(),
         };
-        console.log(formData);
+
+        try {
+            const appointment = await createAppointment(formData);
+            console.log(appointment.data);
+            closeModal();
+            alert(`Appointment booked for ${appointment.data.patientName}`);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const customStyles = {
@@ -49,7 +58,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, booking, date }) => {
                         <input
                             type="text"
                             ref={register({ required: true })}
-                            name="name"
+                            name="patientName"
                             placeholder="Your Name"
                             className="form-control"
                         />

@@ -46,6 +46,7 @@ const BookAppointment = ({ selectedDate }) => {
             totalSpace: 10,
         },
     ];
+
     return (
         <section>
             <div className="container">
